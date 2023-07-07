@@ -10,30 +10,32 @@ namespace phil_Library
         {
             Library library = new Library();
 
-            library.Add("1", "FIRST", "LAST", 100);
-            library.Add("2", "FIRST", "LAST", 200);
-            library.Add("3", "FIRST", "LAST", 300);
+            library.Add("pirats", "nour", "mohammad", 100);
+            library.Add("poor dad", "adele", "kaled", 200);
+            library.Add("reach the stars", "ahmad", "riad", 300);
+            Console.WriteLine("this is all the books are in the library:");
+            Console.WriteLine(" ");
             foreach (var item in library)
             {
                 Console.WriteLine($"{item.Title}");
             }
+            Console.WriteLine(" ");
+            Console.WriteLine("lets for example borrow the first book which is pirats and pack it this the library know :");
+            Console.WriteLine(" ");
             Backpack<Book> backpack = new Backpack<Book>();
-            var book = library.Borrow("1");
-          
-            Console.WriteLine($"the book that is packed ");
+            var book = library.Borrow("pirats");
+            
             backpack.Pack(book);
-            Console.WriteLine($"the book that is borrowed ");
-            Console.WriteLine($"{book.Pages}");
-            Console.WriteLine($"after borrowing"); 
+           
             foreach (var item in library)
             {
                 Console.WriteLine($"{item.Title}");
             }
-            Console.WriteLine($"the book that is unpacked ");
-            Console.WriteLine($"{backpack.Unpack(0).Title}");
-            Console.WriteLine($"RETURN");
+            Console.WriteLine(" ");
+            Console.WriteLine($"lets unpack it  and return it :");
+            Console.WriteLine(" ");
+            backpack.Unpack(0);
             library.Return(book);
-
             foreach (var item in library)
             {
                 Console.WriteLine($"{item.Title}");
